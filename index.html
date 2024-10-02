@@ -1,1 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Suk AI: Object Detection & Classification</title>
+  <!-- Add a Google Font for styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- TensorFlow.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <!-- COCO-SSD Pre-trained Model -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+  <style>
+    /* General body styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #444;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    section {
+      padding: 1rem 2rem;
+      margin: 1rem auto;
+      max-width: 900px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 5px;
+    }
+
+    h2 {
+      color: #444;
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      font-size: 1.1rem;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    #result {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #e9ecef;
+      color: #444;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    #imagePreview {
+      display: block;
+      margin: 1rem auto;
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #444;
+      padding: 10px;
+    }
+
+    canvas {
+      max-width: 100%;
+      margin-top: 1rem;
+    }
+
+    footer {
+      background-color: #444;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+
+    input[type="file"] {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <h1>🚀 Suk AI</h1>
+    <p>Real-Time Object Detection & Image Classification System</p>
+  </header>
+
+  <!-- Main Content Section -->
+  <section id="overview">
+    <h2>Project Overview</h2>
+    <p>
+      Suk AI is designed to provide real-time object detection and classification.
+    </p>
+  </section>
+
+  <!-- Interactive Section -->
+  <section id="demo">
+    <h2>🖥️ Interactive Demo</h2>
+    <p>Upload an image to perform real-time object detection:</p>
+    <input type="file" id="imageUpload" accept="image/*" onchange="loadImage(event)">
+    <img id="imagePreview" src="#" alt="Your Image" style="display: none;">
+    <canvas id="canvas"></canvas>
+    <div id="result"></div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Suk AI - All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript for TensorFlow.js and Image Detection -->
+  <script>
+    let model;
+    // Load the COCO-SSD model
+    cocoSsd.load().then(function (loadedModel) {
+      model = loadedModel;
+      console.log("COCO-SSD model loaded successfully.");
+    });
+
+    // Load and display image
+    const loadImage = (event) => {
+      const imagePreview = document.getElementById('imagePreview');
+      const canvas = document.getElementById('canvas');
+      const reader = new FileReader();
+      
+      reader.onload = () => {
+        imagePreview.src = reader.result;
+        imagePreview.style.display = 'block';
+
+        // Wait for image to load fully before running detection
+        imagePreview.onload = () => {
+          // Draw the image to the canvas
+          const context = canvas.getContext('2d');
+          canvas.width = imagePreview.width;
+          canvas.height = imagePreview.height;
+          context.drawImage(imagePreview, 0, 0, imagePreview.width, imagePreview.height);
+
+          // Run object detection
+          detectObjects(imagePreview);
+        };
+      };
+
+      reader.readAsDataURL(event.target.files[0]);
+    };
+
+    // Run object detection
+    const detectObjects = async (image) => {
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `<strong>Detecting...</strong>`;
+
+      // Perform object detection
+      const predictions = await model.detect(image);
+
+      // Clear previous results and canvas bounding boxes
+      const context = document.getElementById('canvas').getContext('2d');
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(image, 0, 0);
+
+      // Display results
+      predictions.forEach((prediction) => {
+        // Draw bounding box
+        context.beginPath();
+        context.rect(
+          prediction.bbox[0],
+          prediction.bbox[1],
+          prediction.bbox[2],
+          prediction.bbox[3]
+        );
+        context.lineWidth = 2;
+        context.strokeStyle = 'red';
+        context.fillStyle = 'red';
+        context.stroke();
+
+        // Draw label and confidence
+        context.fillText(
+          `${prediction.class} (${Math.round(prediction.score * 100)}%)`,
+          prediction.bbox[0],
+          prediction.bbox[1] > 10 ? prediction.bbox[1] - 5 : 10
+        );
+      });
+
+      // Show summary result
+      resultDiv.innerHTML = `Detected ${predictions.length} objects: ${predictions.map(pred => pred.class).join(", ")}`;
+    };
+  </script>
+</body>
+</html>
 
