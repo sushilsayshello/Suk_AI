@@ -1,4 +1,4 @@
-<img width="685" src="https://github.com/user-attachments/assets/1136c028-4254-4e01-830b-f57b5d2a4794" alt="Screenshot 2024-09-26 at 8 19 45 PM">
+<img width="685" src="https://github.com/user-attachments/assets/1136c028-4254-4e01-830b-f57b5d2a4794" alt="Screenshot 2024-09-26 at 8 19 45 PM">  </br>
 # 🚀 **Suk AI**: Real-Time Object Detection & Image Classification System
 
 In this project, we will explore how **Suk AI**, an advanced real-time object detection and image classification system, was built using **YOLOv5** and **NVIDIA AI Workbench**. The system can be deployed across various industries such as retail, security, and agriculture, providing automated solutions for object detection and classification in real-time environments.
