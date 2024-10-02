@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Suk AI: Object Detection & Classification</title>
+  <!-- Add a Google Font for styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* General body styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #444;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    section {
+      padding: 1rem 2rem;
+      margin: 1rem auto;
+      max-width: 900px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 5px;
+    }
+
+    h2 {
+      color: #444;
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      font-size: 1.1rem;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    #result {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #e9ecef;
+      color: #444;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    #imagePreview {
+      display: block;
+      margin: 1rem auto;
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #444;
+      padding: 10px;
+    }
+
+    #detectedObject {
+      position: relative;
+      max-width: 100%;
+      margin-top: 1rem;
+    }
+
+    #boundingBox {
+      position: absolute;
+      border: 2px solid red;
+      display: none; /* Initially hidden until detection */
+    }
+
+    footer {
+      background-color: #444;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+
+    input[type="file"] {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <h1>🚀 Suk AI</h1>
+    <p>Real-Time Object Detection & Image Classification System</p>
+  </header>
+
+  <!-- Main Content Section -->
+  <section id="overview">
+    <h2>Project Overview</h2>
+    <p>
+      Suk AI was developed with the goal of providing efficient real-time object detection and classification across multiple domains. Leveraging GPU acceleration through **NVIDIA AI Workbench**, the model offers fast and accurate results.
+    </p>
+  </section>
+
+  <section id="features">
+    <h2>Key Features</h2>
+    <ul>
+      <li>🔍 Real-Time Object Detection for Retail, Security, and Agriculture.</li>
+      <li>📊 GPU-Accelerated Performance for faster results.</li>
+      <li>📷 Seamless integration with real-time video feeds using OpenCV.</li>
+    </ul>
+  </section>
+
+  <!-- Interactive Section -->
+  <section id="demo">
+    <h2>🖥️ Interactive Demo</h2>
+    <p>Upload an image to simulate real-time object detection:</p>
+    <input type="file" id="imageUpload" accept="image/*" onchange="loadImage(event)">
+    <img id="imagePreview" src="#" alt="Your Image" style="display: none;">
+    <div id="detectedObject">
+      <div id="boundingBox"></div>
+    </div>
+    <button onclick="simulateDetection()">Run Object Detection</button>
+    <div id="result"></div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Suk AI - All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript for interactivity -->
+  <script>
+    const loadImage = (event) => {
+      const imagePreview = document.getElementById('imagePreview');
+      const boundingBox = document.getElementById('boundingBox');
+      const reader = new FileReader();
+      
+      reader.onload = () => {
+        imagePreview.src = reader.result;
+        imagePreview.style.display = 'block';
+        boundingBox.style.display = 'none'; // Hide the box initially
+      };
+
+      reader.readAsDataURL(event.target.files[0]);
+    };
+
+    const simulateDetection = () => {
+      const boundingBox = document.getElementById('boundingBox');
+      const imagePreview = document.getElementById('imagePreview');
+      const resultDiv = document.getElementById('result');
+      const objects = ['Car', 'Bus', 'Motorcycle', 'Truck', 'Ambulance'];
+      const detectedObject = objects[Math.floor(Math.random() * objects.length)];
+
+      // Simulate loading and displaying result
+      resultDiv.innerHTML = `<strong>Detecting...</strong>`;
+      boundingBox.style.display = 'none';
+
+      setTimeout(() => {
+        resultDiv.innerHTML = `🚗 Object Detected: <strong>${detectedObject}</strong>`;
+
+        // Simulate bounding box display on detected object
+        boundingBox.style.display = 'block';
+        boundingBox.style.width = '100px';  // Adjust dimensions
+        boundingBox.style.height = '100px';
+        boundingBox.style.top = '50px';  // Adjust position
+        boundingBox.style.left = '50px';
+      }, 2000);  // 2-second delay to simulate processing
+    };
+  </script>
+</body>
+</html>
