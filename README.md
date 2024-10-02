@@ -1,4 +1,4 @@
-# 🚀 **Suk AI**: Real-Time Object Detection & Image Classification System
+![Screenshot 2024-10-02 at 7 55 59 PM](https://github.com/user-attachments/assets/b141e064-bb44-4e29-a6ba-d8820e1b8e65)# 🚀 **Suk AI**: Real-Time Object Detection & Image Classification System
 
 In this project, we will explore how **Suk AI**, an advanced real-time object detection and image classification system, was built using **YOLOv5** and **NVIDIA AI Workbench**. The system can be deployed across various industries such as retail, security, and agriculture, providing automated solutions for object detection and classification in real-time environments.
 
@@ -101,3 +101,20 @@ We have exciting plans to expand **Suk AI** further:
 **Suk AI** represents a cutting-edge solution for real-time object detection and image classification across multiple industries. By harnessing the power of **YOLOv5** and **NVIDIA GPUs**, we've built a system that is fast, accurate, and scalable. With further advancements and optimizations, **Suk AI** can expand into numerous specialized use cases, revolutionizing automation across domains.
 
 Thank you for following along in this journey to build **Suk AI**! Stay tuned for future updates as we continue to refine and scale the project.
+
+<img src="https://github.com/user-attachments/assets/91759712-495e-4941-b466-c6c59ac6fa01" alt="Screenshot 2024-10-02 at 8 26 15 PM">
+<img src="https://github.com/user-attachments/assets/ab716270-8e71-4313-8484-4fccd85feffb" alt="Screenshot 2024-10-02 at 7 56 31 PM">
+<img src="https://github.com/user-attachments/assets/fbc8c890-4c60-453b-8f20-4e2e9e62244f" alt="Screenshot 2024-10-02 at 7 56 22 PM">
+<img src="https://github.com/user-attachments/assets/d2a69346-6190-4240-91b2-f4b0a2be134c" alt="Screenshot 2024-10-02 at 7 56 16 PM">
+<img width="685" src="https://github.com/user-attachments/assets/1136c028-4254-4e01-830b-f57b5d2a4794" alt="Screenshot 2024-09-26 at 8 19 45 PM">
+<img src="https://github.com/user-attachments/assets/17c00334-1553-4164-8397-a073299d1850" alt="Screenshot 2024-10-02 at 7 05 14 PM">
+<img src="https://github.com/user-attachments/assets/6905fedd-8ae0-4192-9a83-c562339e8c42" alt="Screenshot 2024-10-02 at 7 29 34 PM">
+<img src="https://github.com/user-attachments/assets/ee84c698-c56a-4b29-a91d-c71613bda290" alt="Screenshot 2024-10-02 at 7 31 58 PM">
+<img src="https://github.com/user-attachments/assets/0ec354ed-f23d-4fc0-aeab-a9efc8f79a48" alt="Screenshot 2024-10-02 at 7 55 52 PM">
+<img src="https://github.com/user-attachments/assets/a1a180cf-1bce-4883-b729-cf52d6c06b16" alt="Screenshot 2024-10-02 at 7 55 42 PM">
+<img src="https://github.com/user-attachments/assets/7264d29e-4226-4a42-9b74-64c297a804db" alt="Screenshot 2024-10-02 at 7 55 59 PM">
+
+
+
+
+
