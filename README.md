@@ -1,4 +1,4 @@
-<img src="https://github.com/user-attachments/assets/d2a69346-6190-4240-91b2-f4b0a2be134c" alt="Screenshot 2024-10-02 at 7 56 16 PM">
+<img width="685" src="https://github.com/user-attachments/assets/1136c028-4254-4e01-830b-f57b5d2a4794" alt="Screenshot 2024-09-26 at 8 19 45 PM">
 # 🚀 **Suk AI**: Real-Time Object Detection & Image Classification System
 
 In this project, we will explore how **Suk AI**, an advanced real-time object detection and image classification system, was built using **YOLOv5** and **NVIDIA AI Workbench**. The system can be deployed across various industries such as retail, security, and agriculture, providing automated solutions for object detection and classification in real-time environments.
@@ -107,7 +107,7 @@ Thank you for following along in this journey to build **Suk AI**! Stay tuned fo
 <img src="https://github.com/user-attachments/assets/ab716270-8e71-4313-8484-4fccd85feffb" alt="Screenshot 2024-10-02 at 7 56 31 PM">
 <img src="https://github.com/user-attachments/assets/fbc8c890-4c60-453b-8f20-4e2e9e62244f" alt="Screenshot 2024-10-02 at 7 56 22 PM">
 
-<img width="685" src="https://github.com/user-attachments/assets/1136c028-4254-4e01-830b-f57b5d2a4794" alt="Screenshot 2024-09-26 at 8 19 45 PM">
+<img src="https://github.com/user-attachments/assets/d2a69346-6190-4240-91b2-f4b0a2be134c" alt="Screenshot 2024-10-02 at 7 56 16 PM">
 <img src="https://github.com/user-attachments/assets/17c00334-1553-4164-8397-a073299d1850" alt="Screenshot 2024-10-02 at 7 05 14 PM">
 <img src="https://github.com/user-attachments/assets/6905fedd-8ae0-4192-9a83-c562339e8c42" alt="Screenshot 2024-10-02 at 7 29 34 PM">
 <img src="https://github.com/user-attachments/assets/ee84c698-c56a-4b29-a91d-c71613bda290" alt="Screenshot 2024-10-02 at 7 31 58 PM">
